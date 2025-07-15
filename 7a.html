@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>JSON/CSV Convertor</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    <style>
+        body{
+            font-family:Arial,sans-serif;
+            margin:20px;
+            background-color: lightblue;
+        }
+textarea{
+    width:100%;
+    height:100%;
+    padding: 10px;
+    margin-bottom:20px;
+}
+button{
+    border-radius: 2px;
+    border:none;
+    background-color: aquamarine;
+    color:blueviolet;
+    cursor:pointer;
+    padding:20px;
+}
+button:hover{
+    background-color: green;
+}
+#result{
+    border-radius: 2px;
+    background-color: aquamarine;
+padding:20px;
+margin-top:15px;
+}
+</style>
+</head>
+<body>
+    <h1>JSON/CSV Convertor</h1>
+    <textarea id="jsoninput" placeholder="Enter the JSON input"></textarea>
+        <button onclick="convertJsonToObject()">ConvertJsonToObject</button>
+    <textarea id="jsonDateInput" placeholder='{"date:2023-05-15T12:00:00Z"}'></textarea>
+        <button onclick="convertJsonToDate()">ConvertJsonToDate</button>
+    <textarea id="datainput" placeholder="Enter the JSON/Csv"></textarea>
+    <button onclick="convertJsonToCsv()">ConvertJsonToCsv</button>
+    <button onclick="convertCsvToJson()">ConvertCsvToJson</button>
+    <textarea id="hashinput" placeholder="Enter the string"></textarea>
+        <button onclick="createHash()">CreateHash</button>
+<div id="result"></div>
+    <script>
+        function convertJsonToObject(){
+            try{
+                document.getElementById('result').innerText=JSON.stringify(JSON.parse(document.getElementById('jsoninput').value),null,2);}
+            catch{
+                document.getElementById('result').innerText="Invalid JSON";
+            }
+        }
+        function convertJsonToDate(){
+            try{
+                document.getElementById('result').innerText=new Date(JSON.parse(document.getElementById('jsonDateInput').value).date).ToString();}
+            catch{
+                document.getElementById('result').innerText="Invalid DATE";
+            }
+        }
+        function convertJsonToCsv(){
+            try{
+                const data=JSON.parse(document.getElementById('datainput').value);
+                document.getElementById('result').innerText=[Object.keys(data[0]).join(','),...data.map(row=>Object.values(row).join(','))].join('\n');}
+                
+            catch{
+                document.getElementById('result').innerText="Invalid Json";
+            }
+        }
+        function convertCsvToJson(){
+                const rows=document.getElementById('datainput').value.split('\n');
+                document.getElementById('result').innerText=Json.stringify(row.slice(1).map(row=>Object.fromEntries(row.split(',').map((val,i)=>[rows[0].split(',')[i],val]))),null,2);
+        }
+        function createHash(){
+            
+                document.getElementById('result').innerText=CryptoJS.SHA256(document.getElementById('hashinput').value);
+            }
+        
+</script>
+</body>
+
+
+
+
+                    

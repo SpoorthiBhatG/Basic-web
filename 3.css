@@ -1,0 +1,46 @@
+h2{
+    text-transform:uppercase;
+    margin-left:20px auto;
+    font-family:Arial,sans-serif;
+    font-weight:bold;
+}
+h3{
+    text-transform:uppercase;
+    margin:20px auto;
+    font-family:Aria,sans-serif;
+    font-weight:bold;
+}
+p{
+    color:yellow;
+    justify-content: center;;
+}
+div{
+    background-color: orange;
+    font-size:24px;
+
+}
+span{
+    color:red;
+    padding: 20px
+}
+time{
+color: blueviolet;
+justify-content: center;
+}
+img{
+    border-radius: 2px;
+    width:100%;
+    height: 80px;
+
+
+}
+a{
+    color: yellow;
+    text-decoration: none;
+}
+a:hover{
+    text-decoration: underline;
+}
+body{
+    background-color: aquamarine;
+}

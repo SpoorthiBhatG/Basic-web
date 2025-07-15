@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jquery script</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body{
+            font-family:Arial,sans-serif;
+            background-color: lightblue;
+            margin: 20px;
+
+        }
+        .box{
+width:100px;
+height: 50px;
+background-color: blue;
+position:relative;
+padding: 10px;
+        }
+    </style>
+    </head>
+    <body>
+        <h1>Jquery</h1>
+        <p id="paragraph">Paragraph</p>
+        <ul id="list">
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+            </ul>
+            <button id="apppendContent">AppendContent</button>
+            <button id="animateBox">AnimateBox</button>
+            <button id="changeColor">ChangeColor</button>
+            <div class="box"></div>
+            <script src="script.js"></script>
+    </body>
+    </html>
+<script>
+    $(document).ready(function(){
+        $('#appendContent').click(function(){
+$('#paragraph').append('Appended text!');
+$('#list').append('<li>Appended item</li>');
+        });
+    $('#animateBox').click(function(){
+        $('.box').animate({
+            left:"+=100",width:"100px",height:"100px"},1000
+        
+        
+        );
+    });
+    $('#changeColor').click(function(){
+        $('.box').css('background-color','lightgreen');
+    });
+
+        
+    });
+</script>
+   
